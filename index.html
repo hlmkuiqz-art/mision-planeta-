@@ -31,23 +31,174 @@
           <p class="hero-lede">Una aventura de ciencia ficcion nacida en Santo Domingo. Tres destinos. Una senal que no debia ser encontrada.</p>
           <div class="hero-actions"><a class="button button-bright" href="#misiones">Iniciar exploracion <span>↗</span></a><a class="text-link" href="#pelicula">Ver trailer <span>▶</span></a></div>
         </div>
-        <div class="orbital-art" aria-label="Ilustracion de un planeta en orbita" role="img"><div class="planet"><span>SD</span></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><b class="coordinate">18°28'N<br />69°54'W</b><b class="signal">SIGNAL<br /><strong>06.08</strong></b></div>
+        <div class="orbital-art" aria-label="Ilustracion de un planeta en orbita" role="img"><div class="planet"><span>SD</span></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div></div>
         <div class="hero-footer"><span>STO. DOMINGO</span><span>MIAMI</span><span>TOKYO</span><span class="footer-note">ON BOARD / REAL TIME / 4K</span></div>
       </section>
       <section class="missions section" id="misiones">
-        <div class="section-heading"><div><p class="eyebrow">Selecciona tu ruta</p><h2>Tres mundos.<br /><em>Una mision.</em></h2></div><p class="section-intro">Entra al archivo y desbloquea la historia. Cada mision revela una pieza distinta de la senal.</p></div>
+        <div class="section-heading"><div><p class="eyebrow">Selecciona tu ruta</p><h2>Tres mundos.<br /><em>Una mision.</em></h2></div><p class="section-intro">Entra al archivo y desbloquea la historia de Mision Planeta.</p></div>
         <div class="mission-grid">
-          <article class="mission-card free"><div class="mission-visual sun"><span>01</span><strong>☼</strong></div><div class="card-content"><p class="card-kicker">Acceso libre / Zona Colonial</p><h3>El Conde</h3><p>La primera senal aparece bajo el sol de Santo Domingo.</p><div class="mission-preview"><div class="video-frame"><video id="conde-preview" controls preload="metadata"></video><span class="video-placeholder">PREVIEW / EL CONDE</span></div><label class="upload-button" for="conde-upload">Subir preview <span>↥</span></label><input class="visually-hidden upload-input" id="conde-upload" type="file" accept="video/mp4,video/webm,video/quicktime" /></div><button class="button button-dark mission-button" data-mission="El Conde">Jugar mision <span>↗</span></button></div></article>
-          <article class="mission-card featured"><div class="mission-visual globe"><span>02</span><strong>◉</strong></div><div class="card-content"><p class="card-kicker">Premium / Salto global</p><h3>Planeta</h3><p>Santo Domingo a Miami y Tokyo en una carrera contra el tiempo.</p><div class="mission-preview"><div class="video-frame"><video id="planeta-preview" controls preload="metadata"></video><span class="video-placeholder">PREVIEW / PLANETA</span></div><label class="upload-button" for="planeta-upload">Subir preview <span>↥</span></label><input class="visually-hidden upload-input" id="planeta-upload" type="file" accept="video/mp4,video/webm,video/quicktime" /></div><button class="button button-dark mission-button" data-mission="Planeta">Desbloquear <span>↗</span></button></div></article>
-          <article class="mission-card locked"><div class="mission-visual night"><span>03</span><strong>✦</strong></div><div class="card-content"><p class="card-kicker">Deluxe / Acceso clasificado</p><h3>Catacumbas</h3><p>El origen de la senal duerme bajo el cementerio.</p><div class="mission-preview"><div class="video-frame"><video id="catacumbas-preview" controls preload="metadata"></video><span class="video-placeholder">PREVIEW / CATACUMBAS</span></div><label class="upload-button" for="catacumbas-upload">Subir preview <span>↥</span></label><input class="visually-hidden upload-input" id="catacumbas-upload" type="file" accept="video/mp4,video/webm,video/quicktime" /></div><button class="button button-dark mission-button" data-mission="Catacumbas">Ver acceso <span>↗</span></button></div></article>
+          <article class="mission-card free">
+            <div class="mission-visual sun"><span>01</span><strong>☼</strong></div>
+            <div class="card-content">
+              <p class="card-kicker">Acceso libre / Zona Colonial</p>
+              <h3>El Conde</h3>
+              <p class="card-description">Descubre las primeras coordenadas en la Zona Colonial de Santo Domingo. Una aventura introductoria gratuita.</p>
+              <div class="mission-specs">
+                <span class="spec-tag">📍 Santo Domingo</span>
+                <span class="spec-tag">⏱️ 45 min</span>
+                <span class="spec-tag">🎯 Principiante</span>
+              </div>
+              <div class="selection-bar">
+                <div class="selection-progress" style="width: 33%"></div>
+                <span class="selection-label">Acceso Desbloqueado</span>
+              </div>
+              <button class="mission-button" data-mission="El Conde" data-price="GRATIS">Entrar →</button>
+            </div>
+          </article>
+          <article class="mission-card featured">
+            <div class="mission-visual globe"><span>02</span><strong>◉</strong></div>
+            <div class="card-content">
+              <p class="card-kicker">Premium / Salto global</p>
+              <h3>Planeta</h3>
+              <p class="card-description">La ruta global esta lista. Viaja entre Santo Domingo, Miami y Tokyo para desvelar los secretos del universo.</p>
+              <div class="mission-specs">
+                <span class="spec-tag">🌍 Global (3 ciudades)</span>
+                <span class="spec-tag">⏱️ 2 hrs</span>
+                <span class="spec-tag">🎯 Intermedio</span>
+              </div>
+              <div class="selection-bar">
+                <div class="selection-progress" style="width: 66%"></div>
+                <span class="selection-label">Premium Requerido</span>
+              </div>
+              <button class="mission-button" data-mission="Planeta" data-price="$9.99">Desbloquear →</button>
+            </div>
+          </article>
+          <article class="mission-card locked">
+            <div class="mission-visual night"><span>03</span><strong>✦</strong></div>
+            <div class="card-content">
+              <p class="card-kicker">Deluxe / Acceso clasificado</p>
+              <h3>Catacumbas</h3>
+              <p class="card-description">La verdad oculta espera. Acceso total a los archivos clasificados, película completa y contenido exclusivo.</p>
+              <div class="mission-specs">
+                <span class="spec-tag">🔐 Clasificado</span>
+                <span class="spec-tag">⏱️ 4 hrs</span>
+                <span class="spec-tag">🎯 Avanzado</span>
+              </div>
+              <div class="selection-bar">
+                <div class="selection-progress" style="width: 100%"></div>
+                <span class="selection-label">Deluxe Exclusivo</span>
+              </div>
+              <button class="mission-button" data-mission="Catacumbas" data-price="$19.99">Acceso VIP →</button>
+            </div>
+          </article>
         </div>
       </section>
-      <section class="film section" id="pelicula"><div class="film-copy"><p class="eyebrow">Preview de la serie y pelicula</p><h2>La senal<br /><em>despierta.</em></h2><p>Sube un archivo MP4 o WebM para previsualizarlo aqui. El video se reproduce localmente en tu navegador.</p><a class="button button-bright" href="#tienda">Obtener acceso <span>↗</span></a></div><div class="preview-grid"><article class="preview-card"><div class="video-frame"><video id="series-preview" controls preload="metadata"></video><span class="video-placeholder">SERIE / PREVIEW</span></div><label class="upload-button" for="series-upload">Subir preview de serie <span>↥</span></label><input class="visually-hidden upload-input" id="series-upload" type="file" accept="video/mp4,video/webm,video/quicktime" /></article><article class="preview-card"><div class="video-frame"><video id="film-preview" controls preload="metadata"></video><span class="video-placeholder">PELICULA / PREVIEW</span></div><label class="upload-button" for="film-upload">Subir preview de pelicula <span>↥</span></label><input class="visually-hidden upload-input" id="film-upload" type="file" accept="video/mp4,video/webm,video/quicktime" /></article></div></section>
-      <section class="store section" id="tienda"><div class="section-heading"><div><p class="eyebrow">Suministros de mision</p><h2>Elige tu<br /><em>frecuencia.</em></h2></div><p class="section-intro">Pagos procesados de forma segura. Tras la compra recibiras tus accesos por correo.</p></div><div class="products"><article class="product" data-product="premium"><p class="card-kicker">MP / 01</p><h3 class="product-name">Premium</h3><p class="product-description">3 misiones, covers 4K y videoclips.</p><strong class="product-price">$9.99</strong><a class="button button-bright checkout" data-plan="premium" href="https://buy.stripe.com/test_fZueVc3QpdSA9cW7Skao800">Comprar acceso <span>↗</span></a></article><article class="product selected" data-product="deluxe"><p class="card-kicker">MP / 02 · Recomendado</p><h3 class="product-name">Deluxe</h3><p class="product-description">Todo el universo, pelicula completa, soundtrack y CD original.</p><strong class="product-price">$19.99</strong><a class="button button-yellow checkout" data-plan="deluxe" href="https://buy.stripe.com/test_aFa4gy3QpaGobl4dcEao801">Comprar deluxe <span>↗</span></a></article></div></section>
-      <section class="admin section" id="admin"><div class="section-heading"><div><p class="eyebrow">Control de contenido</p><h2>Panel<br /><em>Admin.</em></h2></div><p class="section-intro">Edita los productos y guarda una configuracion local para revisar el contenido antes de publicarlo.</p></div><div class="admin-grid"><form class="editor" data-plan="premium"><p class="card-kicker">MP / 01</p><h3>Premium</h3><label>Nombre<input name="name" value="Premium" /></label><label>Descripcion<textarea name="description" rows="3">3 misiones, covers 4K y videoclips.</textarea></label><label>Precio<input name="price" value="$9.99" /></label><label>Stripe Payment Link<input name="link" value="https://buy.stripe.com/test_fZueVc3QpdSA9cW7Skao800" /></label><button class="button button-bright" type="submit">Guardar Premium <span>↗</span></button></form><form class="editor" data-plan="deluxe"><p class="card-kicker">MP / 02 · Recomendado</p><h3>Deluxe</h3><label>Nombre<input name="name" value="Deluxe" /></label><label>Descripcion<textarea name="description" rows="3">Todo el universo, pelicula completa, soundtrack y CD original.</textarea></label><label>Precio<input name="price" value="$19.99" /></label><label>Stripe Payment Link<input name="link" value="https://buy.stripe.com/test_aFa4gy3QpaGobl4dcEao801" /></label><button class="button button-yellow" type="submit">Guardar Deluxe <span>↗</span></button></form></div><p class="admin-note" id="admin-status">Los cambios se guardan solo en este navegador.</p></section>
+      <section class="film section" id="pelicula">
+        <div class="film-copy">
+          <p class="eyebrow">Preview de la serie y pelicula</p>
+          <h2>La senal<br /><em>despierta.</em></h2>
+          <p>Sube un archivo MP4 o WebM para una preview personal de la pelicula Mision Planeta.</p>
+        </div>
+        <div class="film-upload">
+          <label for="film-upload" class="upload-label">
+            <div class="video-placeholder">Arrastra aqui o haz click</div>
+            <video id="film-preview" controls></video>
+          </label>
+          <input type="file" id="film-upload" accept="video/mp4,video/webm" />
+        </div>
+      </section>
+      <section class="store section" id="tienda">
+        <div class="section-heading"><div><p class="eyebrow">Suministros de mision</p><h2>Elige tu<br /><em>frecuencia.</em></h2></div><p class="section-intro">Actualiza tu acceso para desbloquear mas contenido y experiencias exclusivas.</p></div>
+        <div class="product-grid">
+          <div class="product-card" data-product="premium">
+            <div class="product-header">
+              <h3 class="product-name">Premium</h3>
+              <p class="product-price">$9.99</p>
+            </div>
+            <p class="product-description">3 misiones, covers 4K y videoclips.</p>
+            <ul class="product-features">
+              <li>✓ Acceso a 3 misiones principales</li>
+              <li>✓ Fondos de pantalla 4K</li>
+              <li>✓ Videoclips exclusivos</li>
+              <li>✓ Soporte prioritario</li>
+            </ul>
+            <a href="https://buy.stripe.com/test_fZueVc3QpdSA9cW7skao800" class="checkout" data-plan="premium">Comprar Ahora</a>
+          </div>
+          <div class="product-card featured" data-product="deluxe">
+            <div class="badge">RECOMENDADO</div>
+            <div class="product-header">
+              <h3 class="product-name">Deluxe</h3>
+              <p class="product-price">$19.99</p>
+            </div>
+            <p class="product-description">Todo el universo, pelicula completa, soundtrack y CD original.</p>
+            <ul class="product-features">
+              <li>✓ Acceso a todas las misiones</li>
+              <li>✓ Película completa sin ads</li>
+              <li>✓ Soundtrack original en MP3</li>
+              <li>✓ CD físico (envío incluido)</li>
+              <li>✓ Acceso VIP a eventos</li>
+            </ul>
+            <a href="https://buy.stripe.com/test_aFa4gy3QpaGobl4dceao801" class="checkout" data-plan="deluxe">Comprar Ahora</a>
+          </div>
+        </div>
+      </section>
+      <section class="admin section" id="admin">
+        <div class="section-heading"><div><p class="eyebrow">Control de contenido</p><h2>Panel<br /><em>Admin.</em></h2></div><p class="section-intro">Edita los productos y actualiza los precios en tiempo real.</p></div>
+        <div class="admin-grid">
+          <form class="editor" data-plan="premium">
+            <h3>Editar Premium</h3>
+            <label>
+              <span>Nombre</span>
+              <input type="text" name="name" />
+            </label>
+            <label>
+              <span>Descripcion</span>
+              <input type="text" name="description" />
+            </label>
+            <label>
+              <span>Precio</span>
+              <input type="text" name="price" />
+            </label>
+            <label>
+              <span>Link de compra</span>
+              <input type="url" name="link" />
+            </label>
+            <button type="submit">Actualizar</button>
+          </form>
+          <form class="editor" data-plan="deluxe">
+            <h3>Editar Deluxe</h3>
+            <label>
+              <span>Nombre</span>
+              <input type="text" name="name" />
+            </label>
+            <label>
+              <span>Descripcion</span>
+              <input type="text" name="description" />
+            </label>
+            <label>
+              <span>Precio</span>
+              <input type="text" name="price" />
+            </label>
+            <label>
+              <span>Link de compra</span>
+              <input type="url" name="link" />
+            </label>
+            <button type="submit">Actualizar</button>
+          </form>
+        </div>
+        <div class="admin-status" id="admin-status"></div>
+      </section>
     </main>
     <footer><span>© 2026 MISION PLANETA</span><span>HECHO EN SANTO DOMINGO</span><span>MP-SD / END TRANSMISSION</span></footer>
-    <div class="modal" id="mission-modal" aria-hidden="true"><div class="modal-panel"><button class="modal-close" aria-label="Cerrar">×</button><p class="eyebrow">Conexion establecida</p><h2 id="modal-title">El Conde</h2><p id="modal-copy">La mision esta lista para comenzar.</p><div class="progress"><span></span></div><button class="button button-bright" id="launch-button">Entrar a la mision <span>↗</span></button></div></div>
+    <div class="modal" id="mission-modal" aria-hidden="true">
+      <div class="modal-panel">
+        <button class="modal-close" aria-label="Cerrar">×</button>
+        <p class="eyebrow">Conexion establecida</p>
+        <h2 id="modal-title">Titulo de mision</h2>
+        <p id="modal-copy">Contenido de la mision</p>
+        <button class="button button-bright" onclick="document.querySelector('#mission-modal').classList.remove('open')">Cerrar</button>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
