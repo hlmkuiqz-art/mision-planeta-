@@ -17,6 +17,7 @@
       <nav class="nav" aria-label="Navegacion principal">
         <a class="nav-link active" href="#inicio">Explorar</a>
         <a class="nav-link" href="#misiones">Misiones</a>
+        <a class="nav-link" href="#juego">Juego</a>
         <a class="nav-link" href="#pelicula">Pelicula</a>
         <a class="nav-link" href="#tienda">Tienda</a>
         <a class="nav-link admin-link" href="#admin">Admin</a>
@@ -91,6 +92,24 @@
               <button class="mission-button" data-mission="Catacumbas" data-price="$19.99">Acceso VIP →</button>
             </div>
           </article>
+        </div>
+      </section>
+      <section class="game section" id="juego">
+        <div class="section-heading"><div><p class="eyebrow">Juego oficial / acceso premium</p><h2>Orbit<br /><em>Run.</em></h2></div><p class="section-intro">Pilota la nave de Misión Planeta, recoge señales y sobrevive a las tormentas orbitales.</p></div>
+        <div class="game-grid">
+          <div class="game-console">
+            <div class="game-hud"><span>SEÑALES <b id="game-score">0</b></span><span id="game-status">LISTO</span></div>
+            <canvas id="orbit-run" width="720" height="420" aria-label="Juego Orbit Run"></canvas>
+            <div class="game-controls"><button class="button button-yellow" id="game-start" type="button">Iniciar demo <span>↗</span></button><p>Usa ← → o A / D para navegar.</p></div>
+          </div>
+          <aside class="game-product">
+            <p class="card-kicker">Juego digital / acceso premium</p>
+            <h3>Misión Planeta:<br />Orbit Run</h3>
+            <p>Pilota desde Santo Domingo por portales cósmicos, recoge señales y evita tormentas espaciales. Incluye niveles exclusivos, banda sonora y acceso permanente.</p>
+            <strong>US$9.99</strong>
+            <a class="button button-bright" href="https://buy.stripe.com/14A28r6U59GBcvqgMkdjO01" target="_blank" rel="noopener">Comprar Orbit Run <span>↗</span></a>
+            <p class="game-note">La demo es gratuita. La compra se procesa de forma segura con Stripe.</p>
+          </aside>
         </div>
       </section>
       <section class="film section" id="pelicula">
