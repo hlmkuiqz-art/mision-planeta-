@@ -54,7 +54,7 @@ document.querySelectorAll('.upload-input').forEach((input) => {
 });
 
 const defaultProducts = {
-  premium: { name: 'Premium', description: '3 misiones, covers 4K y videoclips.', price: '$9.99', link: 'https://buy.stripe.com/test_fZueVc3QpdSA9cW7Skao800' },
+  premium: { name: 'Premium', description: '3 misiones, covers 4K y videoclips.', price: '$9.99', link: 'https://buy.stripe.com/6oU9AT3HTcSN8fa9jSdjO03' },
   deluxe: { name: 'Deluxe', description: 'Todo el universo, pelicula completa, soundtrack y CD original.', price: '$19.99', link: 'https://buy.stripe.com/test_aFa4gy3QpaGobl4dcEao801' }
 };
 const savedProducts = JSON.parse(localStorage.getItem('mision-planeta-products') || 'null') || defaultProducts;
