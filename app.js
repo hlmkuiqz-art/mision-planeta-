@@ -1,92 +1,26 @@
 const modal = document.querySelector('#mission-modal');
 const modalTitle = document.querySelector('#modal-title');
 const modalCopy = document.querySelector('#modal-copy');
-const missionCopy = {
-  'El Conde': 'La primera coordenada esta activa. Sigue la senal por la Zona Colonial.',
-  Planeta: 'La ruta global esta lista. Preparate para el salto Santo Domingo > Miami > Tokyo.',
-  Catacumbas: 'Acceso clasificado detectado. Esta mision requiere el paquete Deluxe.'
-};
+const missionCopy = { 'El Conde': 'La primera coordenada está activa. Sigue la señal por la Zona Colonial.', Planeta: 'La ruta global está lista. Prepárate para el salto Santo Domingo → Miami → Tokyo.', Catacumbas: 'Acceso clasificado detectado. Esta misión requiere el acceso completo.' };
+document.querySelectorAll('.mission-button').forEach((button) => button.addEventListener('click', () => { modalTitle.textContent = button.dataset.mission; modalCopy.textContent = missionCopy[button.dataset.mission]; modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); }));
+document.querySelector('.modal-close').addEventListener('click', () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); });
 
-document.querySelectorAll('.mission-button').forEach((button) => {
-  button.addEventListener('click', () => {
-    const mission = button.dataset.mission;
-    modalTitle.textContent = mission;
-    modalCopy.textContent = missionCopy[mission];
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-  });
-});
-
-function closeModal() {
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden', 'true');
-}
-
-document.querySelector('.modal-close').addEventListener('click', closeModal);
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) closeModal();
-});
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') closeModal();
-});
-
-document.querySelectorAll('.nav-link').forEach((link) => {
-  link.addEventListener('click', () => {
-    document.querySelectorAll('.nav-link').forEach((item) => item.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
-
-document.querySelectorAll('.checkout').forEach((link) => {
-  link.addEventListener('click', () => console.info(`Checkout iniciado: ${link.dataset.plan}`));
-});
-
-document.querySelectorAll('.upload-input').forEach((input) => {
-  input.addEventListener('change', () => {
-    const file = input.files[0];
-    if (!file) return;
-    const video = document.querySelector(`#${input.id.replace('-upload', '-preview')}`);
-    video.src = URL.createObjectURL(file);
-    video.classList.add('ready');
-    input.previousElementSibling.querySelector('.video-placeholder').textContent = file.name;
-    video.play().catch(() => {});
-  });
-});
-
-const defaultProducts = {
-  premium: { name: 'Premium', description: '3 misiones, covers 4K y videoclips.', price: '$9.99', link: 'https://buy.stripe.com/test_fZueVc3QpdSA9cW7Skao800' },
-  deluxe: { name: 'Deluxe', description: 'Todo el universo, pelicula completa, soundtrack y CD original.', price: '$19.99', link: 'https://buy.stripe.com/test_aFa4gy3QpaGobl4dcEao801' }
-};
-const savedProducts = JSON.parse(localStorage.getItem('mision-planeta-products') || 'null') || defaultProducts;
-const adminStatus = document.querySelector('#admin-status');
-
-function updateStoreCard(plan) {
-  const product = savedProducts[plan];
-  const card = document.querySelector(`[data-product="${plan}"]`);
-  if (!card || !product) return;
-  card.querySelector('.product-name').textContent = product.name;
-  card.querySelector('.product-description').textContent = product.description;
-  card.querySelector('.product-price').textContent = product.price;
-  card.querySelector('.checkout').href = product.link;
-}
-
-Object.keys(savedProducts).forEach(updateStoreCard);
-
-document.querySelectorAll('.editor').forEach((form) => {
-  const product = savedProducts[form.dataset.plan];
-  Object.entries(product).forEach(([key, value]) => {
-    const field = form.elements.namedItem(key);
-    if (field) field.value = value;
-  });
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    savedProducts[form.dataset.plan] = Object.fromEntries(new FormData(form).entries());
-    localStorage.setItem('mision-planeta-products', JSON.stringify(savedProducts));
-    updateStoreCard(form.dataset.plan);
-    adminStatus.textContent = `${savedProducts[form.dataset.plan].name} actualizado localmente.`;
-  });
-});
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+const canvas = document.querySelector('#orbit-run-canvas');
+const start = document.querySelector('#game-start');
+if (canvas && start) {
+  const ctx = canvas.getContext('2d'); const scoreNode = document.querySelector('#game-score'); const status = document.querySelector('#game-status'); const keys = new Set();
+  let frame; let active = false; let state;
+  const clamp = (number, minimum, maximum) => Math.max(minimum, Math.min(maximum, number));
+  function reset() { state = { player: { x: 110, y: 235, health: 100, light: 100, pulse: 0 }, relics: [], shades: [], sparks: [], score: 0, level: 1, elapsed: 0, spawnAt: 0, relicAt: 0, ended: false }; scoreNode.textContent = '0 / 6'; status.textContent = 'NIVEL 1 · BUSCA LAS RELIQUIAS'; }
+  function circle(x, y, radius, color, blur = 0) { ctx.save(); ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = blur; ctx.beginPath(); ctx.arc(x, y, radius, 0, Math.PI * 2); ctx.fill(); ctx.restore(); }
+  function drawWorld(time) { const { width: w, height: h } = canvas; ctx.fillStyle = '#070410'; ctx.fillRect(0, 0, w, h); const haze = ctx.createRadialGradient(state.player.x, state.player.y, 10, state.player.x, state.player.y, 230); haze.addColorStop(0, '#3a235f'); haze.addColorStop(.45, '#161024'); haze.addColorStop(1, '#070410'); ctx.fillStyle = haze; ctx.fillRect(0, 0, w, h); ctx.strokeStyle = '#aa70ee22'; ctx.lineWidth = 2; for (let x = -40; x < w + 40; x += 75) { ctx.beginPath(); ctx.moveTo(x + Math.sin(time / 1300) * 12, 0); ctx.lineTo(x - 70, h); ctx.stroke(); } for (let y = 30; y < h; y += 62) { ctx.strokeStyle = '#ffffff09'; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y - 18); ctx.stroke(); } ctx.fillStyle = '#2e1d42'; ctx.fillRect(0, 0, w, 20); ctx.fillRect(0, h - 20, w, 20); ctx.fillStyle = '#b77cff'; ctx.font = '700 12px Space Mono'; ctx.fillText('CATACUMBAS · SECTOR ' + String(state.level).padStart(2, '0'), 22, 43); }
+  function spawn(time) { if (state.relics.length + state.score < 6 && time - state.relicAt > 1100) { state.relics.push({ x: 260 + Math.random() * 400, y: 70 + Math.random() * 300, phase: Math.random() * 7 }); state.relicAt = time; } if (time - state.spawnAt > Math.max(900, 1900 - state.level * 210)) { state.shades.push({ x: 750, y: 60 + Math.random() * 340, speed: 0.7 + state.level * .24, pulse: Math.random() * 7 }); state.spawnAt = time; } }
+  function update(time) { const p = state.player; const speed = 3.6; if (keys.has('ArrowLeft') || keys.has('a')) p.x -= speed; if (keys.has('ArrowRight') || keys.has('d')) p.x += speed; if (keys.has('ArrowUp') || keys.has('w')) p.y -= speed; if (keys.has('ArrowDown') || keys.has('s')) p.y += speed; p.x = clamp(p.x, 28, canvas.width - 28); p.y = clamp(p.y, 48, canvas.height - 40); p.light = Math.max(0, p.light - .035); p.pulse = Math.max(0, p.pulse - .028); state.shades.forEach((shade) => { const dx = p.x - shade.x; const dy = p.y - shade.y; const distance = Math.hypot(dx, dy) || 1; shade.x += dx / distance * shade.speed; shade.y += dy / distance * shade.speed; if (distance < 30 && p.pulse <= 0) p.health = Math.max(0, p.health - .22); if (p.pulse > 0 && distance < 125) shade.hit = true; }); state.shades = state.shades.filter((shade) => !shade.hit); state.relics = state.relics.filter((relic) => { if (Math.hypot(p.x - relic.x, p.y - relic.y) < 29) { state.score += 1; state.level = Math.min(3, 1 + Math.floor(state.score / 2)); p.light = Math.min(100, p.light + 22); scoreNode.textContent = `${state.score} / 6`; status.textContent = state.score === 6 ? 'PORTAL ESTABLE · DEMO COMPLETA' : `NIVEL ${state.level} · ${6 - state.score} RELIQUIAS RESTANTES`; return false; } return true; }); if (p.health <= 0) end('EL SOMBRA TE ENCONTRÓ'); if (state.score >= 6) end('DEMO COMPLETA · PORTAL ASEGURADO'); }
+  function drawHud() { const p = state.player; ctx.fillStyle = '#00000099'; ctx.fillRect(18, canvas.height - 58, 220, 39); ctx.font = '700 10px Space Mono'; ctx.fillStyle = '#dfd4ff'; ctx.fillText('VIDA', 27, canvas.height - 39); ctx.fillText('LUZ', 27, canvas.height - 22); ctx.fillStyle = '#35194f'; ctx.fillRect(66, canvas.height - 47, 154, 8); ctx.fillRect(66, canvas.height - 30, 154, 8); ctx.fillStyle = '#ff6b70'; ctx.fillRect(66, canvas.height - 47, 154 * p.health / 100, 8); ctx.fillStyle = '#f5e95d'; ctx.fillRect(66, canvas.height - 30, 154 * p.light / 100, 8); if (p.pulse > 0) { ctx.strokeStyle = '#f4bdff'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(p.x, p.y, 150 * (1 - p.pulse), 0, Math.PI * 2); ctx.stroke(); } }
+  function render(time) { drawWorld(time); const p = state.player; spawn(time); update(time); state.relics.forEach((relic) => { const glow = 12 + Math.sin(time / 260 + relic.phase) * 5; circle(relic.x, relic.y, glow, '#b75cff', 24); circle(relic.x, relic.y, 5, '#f5e95d', 14); }); state.shades.forEach((shade) => { circle(shade.x, shade.y, 25 + Math.sin(time / 180 + shade.pulse) * 4, '#6a239b', 25); circle(shade.x - 7, shade.y - 4, 3, '#f5e95d', 10); circle(shade.x + 7, shade.y - 4, 3, '#f5e95d', 10); }); const beam = ctx.createRadialGradient(p.x, p.y, 3, p.x, p.y, 78 + p.light * .9); beam.addColorStop(0, '#fff7cbcc'); beam.addColorStop(.18, '#d8aaff55'); beam.addColorStop(1, '#b66cff00'); ctx.fillStyle = beam; ctx.beginPath(); ctx.arc(p.x, p.y, 168, 0, Math.PI * 2); ctx.fill(); circle(p.x, p.y, 16, '#d9f45a', 14); ctx.fillStyle = '#071015'; ctx.beginPath(); ctx.moveTo(p.x, p.y - 12); ctx.lineTo(p.x - 11, p.y + 12); ctx.lineTo(p.x + 11, p.y + 12); ctx.fill(); drawHud(); if (active) frame = requestAnimationFrame(render); }
+  function end(message) { active = false; status.textContent = message; start.innerHTML = state.score >= 6 ? 'Jugar de nuevo <b>↗</b>' : 'Reintentar incursión <b>↗</b>'; }
+  function pulse() { if (active && state.player.pulse <= 0 && state.player.light >= 15) { state.player.pulse = 1; state.player.light -= 15; } }
+  start.addEventListener('click', () => { cancelAnimationFrame(frame); reset(); active = true; start.innerHTML = 'Pulso disponible · Espacio <b>↗</b>'; frame = requestAnimationFrame(render); });
+  window.addEventListener('keydown', (event) => { const lower = event.key.toLowerCase(); const key = lower === 'arrowleft' ? 'ArrowLeft' : lower === 'arrowright' ? 'ArrowRight' : lower === 'arrowup' ? 'ArrowUp' : lower === 'arrowdown' ? 'ArrowDown' : lower; if (active && ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'a', 's', 'd', 'w'].includes(key)) { keys.add(key); event.preventDefault(); } if (event.code === 'Space') { pulse(); event.preventDefault(); } });
+  window.addEventListener('keyup', (event) => { const lower = event.key.toLowerCase(); keys.delete(lower === 'arrowleft' ? 'ArrowLeft' : lower === 'arrowright' ? 'ArrowRight' : lower === 'arrowup' ? 'ArrowUp' : lower === 'arrowdown' ? 'ArrowDown' : lower); });
 }
