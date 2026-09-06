@@ -1,204 +1,40 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Mision Planeta Santo Domingo: experiencias sci-fi, juego y pelicula." />
-    <title>Mision Planeta | Santo Domingo</title>
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="Mision Planeta inicio"><span>MP</span> / 06</a>
-      <nav class="nav" aria-label="Navegacion principal">
-        <a class="nav-link active" href="#inicio">Explorar</a>
-        <a class="nav-link" href="#misiones">Misiones</a>
-        <a class="nav-link" href="#pelicula">Pelicula</a>
-        <a class="nav-link" href="#tienda">Tienda</a>
-        <a class="nav-link admin-link" href="#admin">Admin</a>
-      </nav>
-      <div class="status"><i></i> Sistema activo</div>
-    </header>
-    <main>
-      <section class="hero" id="inicio">
-        <div class="hero-copy">
-          <p class="eyebrow">Archivo de mision / SD-001 / Agosto 2026</p>
-          <h1>MISION<br /><em>PLANETA</em></h1>
-          <p class="hero-lede">Una aventura de ciencia ficcion nacida en Santo Domingo. Tres destinos. Una senal que no debia ser encontrada.</p>
-          <div class="hero-actions"><a class="button button-bright" href="#misiones">Iniciar exploracion <span>↗</span></a><a class="text-link" href="#pelicula">Ver trailer <span>▶</span></a></div>
-        </div>
-        <div class="orbital-art" aria-label="Ilustracion de un planeta en orbita" role="img"><div class="planet"><span>SD</span></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div></div>
-        <div class="hero-footer"><span>STO. DOMINGO</span><span>MIAMI</span><span>TOKYO</span><span class="footer-note">ON BOARD / REAL TIME / 4K</span></div>
-      </section>
-      <section class="missions section" id="misiones">
-        <div class="section-heading"><div><p class="eyebrow">Selecciona tu ruta</p><h2>Tres mundos.<br /><em>Una mision.</em></h2></div><p class="section-intro">Entra al archivo y desbloquea la historia de Mision Planeta.</p></div>
-        <div class="mission-grid">
-          <article class="mission-card free">
-            <div class="mission-visual sun"><span>01</span><strong>☼</strong></div>
-            <div class="card-content">
-              <p class="card-kicker">Acceso libre / Zona Colonial</p>
-              <h3>El Conde</h3>
-              <p class="card-description">Descubre las primeras coordenadas en la Zona Colonial de Santo Domingo. Una aventura introductoria gratuita.</p>
-              <div class="mission-specs">
-                <span class="spec-tag">📍 Santo Domingo</span>
-                <span class="spec-tag">⏱️ 45 min</span>
-                <span class="spec-tag">🎯 Principiante</span>
-              </div>
-              <div class="selection-bar">
-                <div class="selection-progress" style="width: 33%"></div>
-                <span class="selection-label">Acceso Desbloqueado</span>
-              </div>
-              <button class="mission-button" data-mission="El Conde" data-price="GRATIS">Entrar →</button>
-            </div>
-          </article>
-          <article class="mission-card featured">
-            <div class="mission-visual globe"><span>02</span><strong>◉</strong></div>
-            <div class="card-content">
-              <p class="card-kicker">Premium / Salto global</p>
-              <h3>Planeta</h3>
-              <p class="card-description">La ruta global esta lista. Viaja entre Santo Domingo, Miami y Tokyo para desvelar los secretos del universo.</p>
-              <div class="mission-specs">
-                <span class="spec-tag">🌍 Global (3 ciudades)</span>
-                <span class="spec-tag">⏱️ 2 hrs</span>
-                <span class="spec-tag">🎯 Intermedio</span>
-              </div>
-              <div class="selection-bar">
-                <div class="selection-progress" style="width: 66%"></div>
-                <span class="selection-label">Premium Requerido</span>
-              </div>
-              <button class="mission-button" data-mission="Planeta" data-price="$9.99">Desbloquear →</button>
-            </div>
-          </article>
-          <article class="mission-card locked">
-            <div class="mission-visual night"><span>03</span><strong>✦</strong></div>
-            <div class="card-content">
-              <p class="card-kicker">Deluxe / Acceso clasificado</p>
-              <h3>Catacumbas</h3>
-              <p class="card-description">La verdad oculta espera. Acceso total a los archivos clasificados, película completa y contenido exclusivo.</p>
-              <div class="mission-specs">
-                <span class="spec-tag">🔐 Clasificado</span>
-                <span class="spec-tag">⏱️ 4 hrs</span>
-                <span class="spec-tag">🎯 Avanzado</span>
-              </div>
-              <div class="selection-bar">
-                <div class="selection-progress" style="width: 100%"></div>
-                <span class="selection-label">Deluxe Exclusivo</span>
-              </div>
-              <button class="mission-button" data-mission="Catacumbas" data-price="$19.99">Acceso VIP →</button>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="film section" id="pelicula">
-        <div class="film-copy">
-          <p class="eyebrow">Preview de la serie y pelicula</p>
-          <h2>La senal<br /><em>despierta.</em></h2>
-          <p>Sube un archivo MP4 o WebM para una preview personal de la pelicula Mision Planeta.</p>
-        </div>
-        <div class="film-upload">
-          <label for="film-upload" class="upload-label">
-            <div class="video-placeholder">Arrastra aqui o haz click</div>
-            <video id="film-preview" controls></video>
-          </label>
-          <input type="file" id="film-upload" accept="video/mp4,video/webm" />
-        </div>
-      </section>
-      <section class="store section" id="tienda">
-        <div class="section-heading"><div><p class="eyebrow">Suministros de mision</p><h2>Elige tu<br /><em>frecuencia.</em></h2></div><p class="section-intro">Actualiza tu acceso para desbloquear mas contenido y experiencias exclusivas.</p></div>
-        <div class="product-grid">
-          <div class="product-card" data-product="premium">
-            <div class="product-header">
-              <h3 class="product-name">Premium</h3>
-              <p class="product-price">$9.99</p>
-            </div>
-            <p class="product-description">3 misiones, covers 4K y videoclips.</p>
-            <ul class="product-features">
-              <li>✓ Acceso a 3 misiones principales</li>
-              <li>✓ Fondos de pantalla 4K</li>
-              <li>✓ Videoclips exclusivos</li>
-              <li>✓ Soporte prioritario</li>
-            </ul>
-            <a href="https://buy.stripe.com/test_fZueVc3QpdSA9cW7skao800" class="checkout" data-plan="premium">Comprar Ahora</a>
-          </div>
-          <div class="product-card featured" data-product="deluxe">
-            <div class="badge">RECOMENDADO</div>
-            <div class="product-header">
-              <h3 class="product-name">Deluxe</h3>
-              <p class="product-price">$19.99</p>
-            </div>
-            <p class="product-description">Todo el universo, pelicula completa, soundtrack y CD original.</p>
-            <ul class="product-features">
-              <li>✓ Acceso a todas las misiones</li>
-              <li>✓ Película completa sin ads</li>
-              <li>✓ Soundtrack original en MP3</li>
-              <li>✓ CD físico (envío incluido)</li>
-              <li>✓ Acceso VIP a eventos</li>
-            </ul>
-            <a href="https://buy.stripe.com/test_aFa4gy3QpaGobl4dceao801" class="checkout" data-plan="deluxe">Comprar Ahora</a>
-          </div>
-        </div>
-      </section>
-      <section class="admin section" id="admin">
-        <div class="section-heading"><div><p class="eyebrow">Control de contenido</p><h2>Panel<br /><em>Admin.</em></h2></div><p class="section-intro">Edita los productos y actualiza los precios en tiempo real.</p></div>
-        <div class="admin-grid">
-          <form class="editor" data-plan="premium">
-            <h3>Editar Premium</h3>
-            <label>
-              <span>Nombre</span>
-              <input type="text" name="name" />
-            </label>
-            <label>
-              <span>Descripcion</span>
-              <input type="text" name="description" />
-            </label>
-            <label>
-              <span>Precio</span>
-              <input type="text" name="price" />
-            </label>
-            <label>
-              <span>Link de compra</span>
-              <input type="url" name="link" />
-            </label>
-            <button type="submit">Actualizar</button>
-          </form>
-          <form class="editor" data-plan="deluxe">
-            <h3>Editar Deluxe</h3>
-            <label>
-              <span>Nombre</span>
-              <input type="text" name="name" />
-            </label>
-            <label>
-              <span>Descripcion</span>
-              <input type="text" name="description" />
-            </label>
-            <label>
-              <span>Precio</span>
-              <input type="text" name="price" />
-            </label>
-            <label>
-              <span>Link de compra</span>
-              <input type="url" name="link" />
-            </label>
-            <button type="submit">Actualizar</button>
-          </form>
-        </div>
-        <div class="admin-status" id="admin-status"></div>
-      </section>
-    </main>
-    <footer><span>© 2026 MISION PLANETA</span><span>HECHO EN SANTO DOMINGO</span><span>MP-SD / END TRANSMISSION</span></footer>
-    <div class="modal" id="mission-modal" aria-hidden="true">
-      <div class="modal-panel">
-        <button class="modal-close" aria-label="Cerrar">×</button>
-        <p class="eyebrow">Conexion establecida</p>
-        <h2 id="modal-title">Titulo de mision</h2>
-        <p id="modal-copy">Contenido de la mision</p>
-        <button class="button button-bright" onclick="document.querySelector('#mission-modal').classList.remove('open')">Cerrar</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Planeta Games — experiencias originales de Misión Planeta." />
+  <title>Planeta Games — Misión Planeta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio"><span>PG</span> Planeta Games</a>
+    <nav aria-label="Navegación principal"><a href="#catalogo">Catálogo</a><a href="#mundo">Mundos</a><a href="#orbit-run">Jugar</a></nav>
+    <a class="header-cta" href="#orbit-run">Jugar demo <b>↗</b></a>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy"><p class="eyebrow">Misión Planeta · Universo original</p><h1>Juega las<br /><em>coordenadas.</em></h1><p>Una colección de aventuras originales nacidas entre Santo Domingo, Miami, Tokyo y las Catacumbas.</p><div class="actions"><a class="button primary" href="#catalogo">Explorar catálogo <b>↓</b></a><a class="button outline" href="#orbit-run">Probar Orbit Run</a></div></div>
+      <div class="hero-map" aria-hidden="true"><div class="map-grid"></div><div class="route route-one"></div><div class="route route-two"></div><div class="pin sd"><b>01</b><span>SDQ</span></div><div class="pin mia"><b>02</b><span>MIA</span></div><div class="pin tyo"><b>03</b><span>TYO</span></div><div class="hero-note">4 mundos<br />1 señal</div></div>
+    </section>
+    <section class="catalog section" id="catalogo">
+      <div class="section-title"><div><p class="eyebrow">Catálogo oficial</p><h2>Elige tu<br /><em>mundo.</em></h2></div><p>Los juegos y películas de Misión Planeta. Orbit Run está disponible ahora; los demás productos se lanzarán próximamente.</p></div>
+      <div class="product-grid">
+        <article class="product conde"><div class="art"><span class="city">SANTO DOMINGO</span><strong>01</strong><i>☀</i></div><div class="product-body"><p class="tag">Juego + película · Próximamente</p><h3>El Conde</h3><p>Explora las calles de la Zona Colonial y encuentra la primera coordenada.</p><button class="notify" data-product="El Conde">Avisarme al lanzar <b>→</b></button></div></article>
+        <article class="product brickell"><div class="art"><span class="city">MIAMI</span><strong>02</strong><i>◒</i></div><div class="product-body"><p class="tag">Juego + película · Próximamente</p><h3>Brickell</h3><p>Una ruta de ciencia ficción entre dinero, sueños y conexiones imposibles.</p><button class="notify" data-product="Brickell">Avisarme al lanzar <b>→</b></button></div></article>
+        <article class="product shinjuku"><div class="art"><span class="city">TOKYO</span><strong>03</strong><i>◈</i></div><div class="product-body"><p class="tag">Juego + película · Próximamente</p><h3>Shinjuku</h3><p>Parkour, neones y soledad en la ciudad donde comienza el futuro.</p><button class="notify" data-product="Shinjuku">Avisarme al lanzar <b>→</b></button></div></article>
+        <article class="product catacumbas"><div class="art"><span class="city">SANTO DOMINGO · NOCHE</span><strong>04</strong><i>☾</i></div><div class="product-body"><p class="tag">Horror · Próximamente</p><h3>Catacumbas</h3><p>Sobrevive a una noche de niebla, señales perdidas y ruinas bajo la luna.</p><button class="notify" data-product="Catacumbas">Avisarme al lanzar <b>→</b></button></div></article>
       </div>
-    </div>
-    <script src="app.js"></script>
-  </body>
+    </section>
+    <section class="orbit-section" id="orbit-run"><div class="section orbit-layout"><div><p class="eyebrow">Disponible ahora · Juego digital</p><h2>Orbit<br /><em>Run.</em></h2><p class="orbit-description">Pilota una nave, recoge señales y evita las tormentas orbitales. Juega la demo gratis o compra el acceso completo.</p><div class="price"><span>Acceso completo</span><b>US$9.99</b></div><a class="button lime" href="https://buy.stripe.com/14A28r6U59GBcvqgMkdjO01" target="_blank" rel="noopener">Comprar Orbit Run <b>↗</b></a><p class="fine-print">El pago se procesa en Stripe. La entrega automática requiere activación del sistema de acceso.</p></div><div class="game-console"><div class="console-head"><span>ORBIT RUN / DEMO</span><span>SEÑALES <b id="game-score">0</b></span><span id="game-status">LISTO</span></div><canvas id="orbit-run-canvas" width="720" height="420" aria-label="Demo de Orbit Run"></canvas><div class="console-controls"><button class="button primary" id="game-start" type="button">Iniciar demo <b>↗</b></button><span>← → o A / D</span></div></div></div></section>
+    <section class="worlds section" id="mundo"><p class="eyebrow">El universo</p><div class="world-strip"><span>18.4719° N</span><b>Santo Domingo</b><span>25.7617° N</span><b>Miami</b><span>35.6938° N</span><b>Tokyo</b><span>18.4728° N</span><b>Catacumbas</b></div></section>
+  </main>
+  <footer><a class="brand" href="#inicio"><span>PG</span> Planeta Games</a><p>© 2026 Isidro Reyes · Misión Planeta · All Rights Reserved</p></footer>
+  <dialog id="notice-modal"><button class="close-modal" aria-label="Cerrar">×</button><p class="eyebrow">Próximo lanzamiento</p><h2 id="notice-title">Producto</h2><p>Este producto está en desarrollo. Vuelve pronto para conocer su fecha de lanzamiento y su enlace oficial de compra.</p><button class="button primary close-notice">Entendido <b>→</b></button></dialog>
+  <script src="app.js"></script>
+</body>
 </html>
