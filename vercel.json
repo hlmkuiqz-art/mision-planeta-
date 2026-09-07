@@ -1,5 +1,9 @@
 {
-  "rewrites": [
-    { "source": "/play", "destination": "/api/play" }
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://planeta-games-store-git-vercel-agent-fix-product-p-e60cd2-mecu1.vercel.app/",
+      "permanent": true
+    }
   ]
 }
